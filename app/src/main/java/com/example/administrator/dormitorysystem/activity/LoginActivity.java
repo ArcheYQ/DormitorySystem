@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
     Button buRegistered;
     @Bind(R.id.tv_loginRule)
     TextView tvLoginRule;
-//1回来请吃东西1
+//回来请吃东西
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
