@@ -7,6 +7,15 @@ import cn.bmob.v3.BmobUser;
  */
 
 public class Student extends BmobUser{
+    public Boolean getPer() {
+        return isPer;
+    }
+
+    public void setPer(Boolean per) {
+        isPer = per;
+    }
+
+    private Boolean isPer;
     /**
      * 真实姓名
      */
@@ -116,4 +125,7 @@ public class Student extends BmobUser{
      * 学号
      */
     private String number;
+    public Student(){
+        this.isPer = false;
+    }
 }

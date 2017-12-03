@@ -40,7 +40,7 @@
                 android:textSize="15sp"
                 android:textColor="#c3e7e6e6"
                 android:textColorHint="#c3e7e6e6"
-                android:hint="请输入账号"
+                android:hint="请输入学号/工号"
                 android:background="#00ffffff"
                 android:layout_marginLeft="45dp"
                 android:layout_centerVertical="true"

@@ -7,6 +7,15 @@ import cn.bmob.v3.BmobUser;
  */
 
 public class Administrato extends BmobUser {
+    public Boolean getPer() {
+        return isPer;
+    }
+
+    public void setPer(Boolean per) {
+        isPer = per;
+    }
+
+    private Boolean isPer;
     /**
      * 工号
      */
@@ -68,5 +77,7 @@ public class Administrato extends BmobUser {
      * 头像地址
      */
     private String nickUrl;
-
+public Administrato(){
+    this.isPer = true;
+}
 }
