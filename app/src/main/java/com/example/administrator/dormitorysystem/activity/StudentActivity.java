@@ -63,7 +63,7 @@ public class StudentActivity extends BaseActivity {
     }
 
     private void initData() {
-        tvTrueName.setText(student.getName().toString());
+        tvTrueName.setText(student.getName().toString());//
 
         tvId.setText(student.getUsername().toString());
 
