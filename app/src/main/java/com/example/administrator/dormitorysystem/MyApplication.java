@@ -16,17 +16,17 @@ import cn.bmob.v3.Bmob;
  */
 
 public class MyApplication extends Application {
-    private static Context context;
+    private static Context mContext;
 
     public static Context getContext() {
-        return context;
+        return mContext;
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
-
-        context=getApplicationContext();
+        Bmob.initialize(this,"b499fe8d6326dbc2623632d893910526");
+        mContext=getApplicationContext();
         Tiny.getInstance().init(this);
         SImagePicker.init(new PickerConfig.Builder().setAppContext(this)
                 .setImageLoader(new GlideImageLoader())

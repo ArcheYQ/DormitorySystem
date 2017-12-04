@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-        Bmob.initialize(this,"b499fe8d6326dbc2623632d893910526");
+
         rgChoose.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
@@ -154,7 +154,11 @@ public class LoginActivity extends AppCompatActivity {
                 if (e == null){
                     Student student1 = BmobUser.getCurrentUser(Student.class);
                     if(student1.getPer()==false){
-                        //tiao
+                        Intent intent = new Intent(LoginActivity.this,StudentActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("sInfo",student);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
                     }else{
                         Toast.makeText(LoginActivity.this, "请选择管理员方式登录", Toast.LENGTH_SHORT).show();
                     }

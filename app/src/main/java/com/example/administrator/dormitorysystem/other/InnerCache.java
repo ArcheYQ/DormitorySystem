@@ -1,5 +1,6 @@
 package com.example.administrator.dormitorysystem.other;
 
+import android.app.Application;
 import android.content.Context;
 import android.os.Environment;
 
@@ -37,7 +38,7 @@ public class InnerCache extends Cache {
   }
 
   private String getInnerCacheDir(Context context) {
-    String cachePath;
+    String cachePath = null;
     if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
         || !Environment.isExternalStorageRemovable()) {
       cachePath = context.getExternalCacheDir().getPath();

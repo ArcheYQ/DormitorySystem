@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -94,22 +95,31 @@ public class DetailStudentActivity extends BaseActivity {
             case R.id.btn_student_ensure:
                 if (!etClassName.getText().toString().isEmpty() && !etCollega.getText().toString().isEmpty() && !etDorDetaliNum.getText().toString().isEmpty() && !etDorNum.getText().toString().isEmpty()
                         && !etGrade.getText().toString().isEmpty() && !etTrueName.getText().toString().isEmpty() && !etStudentSex.getText().toString().isEmpty() && !etTelNum.getText().toString().isEmpty()) {
-                    Student student = Student.getCurrentUser(Student.class);
-                    Student student1 = new Student();
-                    student1.setName(etTrueName.getText().toString());
-                    student1.setClassName(etClassName.getText().toString());
-                    student1.setCollega(etCollega.getText().toString());
-                    student1.setDorDetaliNum(etDorDetaliNum.getText().toString());
-                    student1.setGrade(etGrade.getText().toString());
-                    student1.setMobilePhoneNumber(etTelNum.getText().toString());
-                    student1.setDorNum(etDorNum.getText().toString());
-                    student1.setSex(etStudentSex.getText().toString());
-                    student1.update(student.getObjectId(), new UpdateListener() {
+                    final Student student = Student.getCurrentUser(Student.class);
+                    student.setName(etTrueName.getText().toString());
+                    student.setClassName(etClassName.getText().toString());
+                    student.setCollega(etCollega.getText().toString());
+                    student.setDorDetaliNum(etDorDetaliNum.getText().toString());
+                    student.setGrade(etGrade.getText().toString());
+                    student.setMobilePhoneNumber(etTelNum.getText().toString());
+                    student.setDorNum(etDorNum.getText().toString());
+                    student.setSex(etStudentSex.getText().toString());
+                    student.update(student.getObjectId(), new UpdateListener() {
                         @Override
                         public void done(BmobException e) {
                             if (e == null) {
                                 Toast.makeText(mActivity, "更新用户信息成功", Toast.LENGTH_SHORT).show();
-                            } else {
+                                Intent intent = new Intent(DetailStudentActivity.this,StudentActivity.class);
+                                Bundle bundle = new Bundle();
+                                bundle.putSerializable("sInfo",student);
+                                intent.putExtras(bundle);
+                                startActivity(intent);
+                            } else if (e.getErrorCode() == 301){
+                                 Toast.makeText(mActivity, "电话号码填写格式不对", Toast.LENGTH_SHORT).show();
+
+                            }else if (e.getErrorCode() == 9016){
+                                Toast.makeText(mActivity, "网络无连接( ▼-▼ )", Toast.LENGTH_SHORT).show();
+                            }else {
                                 Toast.makeText(mActivity, "更新用户信息失败", Toast.LENGTH_SHORT).show();
                             }
                         }

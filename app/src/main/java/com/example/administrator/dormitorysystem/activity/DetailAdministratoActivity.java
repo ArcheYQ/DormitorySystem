@@ -96,7 +96,12 @@ public class DetailAdministratoActivity extends BaseActivity {
                         public void done(BmobException e) {
                             if (e == null) {
                                 Toast.makeText(mActivity, "更新用户信息成功", Toast.LENGTH_SHORT).show();
-                            } else {
+                            }else if (e.getErrorCode() == 301){
+                                Toast.makeText(mActivity, "电话号码填写格式不对", Toast.LENGTH_SHORT).show();
+
+                            }else if (e.getErrorCode() == 9016){
+                                Toast.makeText(mActivity, "网络无连接( ▼-▼ )", Toast.LENGTH_SHORT).show();
+                            }else {
                                 Toast.makeText(mActivity, "更新用户信息失败", Toast.LENGTH_SHORT).show();
                             }
                         }
