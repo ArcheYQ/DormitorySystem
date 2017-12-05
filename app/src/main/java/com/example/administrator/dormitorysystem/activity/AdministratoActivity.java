@@ -1,6 +1,7 @@
 package com.example.administrator.dormitorysystem.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -17,6 +18,7 @@ import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.loader.ImageLoader;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -53,16 +55,19 @@ public class AdministratoActivity extends BaseActivity {
     TextView tvMainRage;
     @Bind(R.id.drawerLayout)
     DrawerLayout drawerLayout;
+    @Bind(R.id.iv_setting)
+    ImageView ivSetting;
     private List<Integer> images;
     private List<String> strings;
     private Administrato administrato;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         StatusBarCompat.translucentStatusBar(this);
         setContentView(R.layout.activity_administrato);
         ButterKnife.bind(this);
-
+        administrato = (Administrato) getIntent().getSerializableExtra("aInfo");
         initData();
         initDrawer(tbAdministrato);
         banner.setImageLoader(new GlideImagerLoader());
@@ -73,6 +78,7 @@ public class AdministratoActivity extends BaseActivity {
         banner.setDelayTime(2000);
         banner.start();
     }
+
     public void initDrawer(Toolbar toolbar) {
         if (toolbar != null) {
             ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.refresh, R.string.refresh) {
@@ -99,14 +105,29 @@ public class AdministratoActivity extends BaseActivity {
             Glide.with(context).load(o).into(imageView);
         }
     }
+
     private void initData() {
         tvTrueName.setText(administrato.getName().toString());
         tvId.setText(administrato.getUsername().toString());
         tvSex.setText(administrato.getSex().toString());
-        tvTel.setText(administrato.get().toString());
-        tvMainRage.setText(administrato.getSex().toString());
+        tvTel.setText(administrato.getMobilePhoneNumber().toString());
+        tvMainRage.setText(administrato.getMainRage().toString());
+        if (administrato.getNickUrl().isEmpty()) {
+            Glide.with(this).load("http://bmob-cdn-13164.b0.upaiyun.com/2017/09/04/b1b8899cc0934c899bc86f88bafdf302.jpg").into(cmPerson);
+        } else {
+            Glide.with(this).load(administrato.getNickUrl().toString()).into(cmPerson);
+        }
+        images = new ArrayList<>();
+        strings = new ArrayList<>();
+        images.add(R.drawable.one);
+        images.add(R.drawable.two);
+        images.add(R.drawable.three);
+        strings.add("湖南工业大学欢迎你");
+        strings.add("学校夜景");
+        strings.add("厚德博学 和而不同");
     }
-    @OnClick({R.id.bu_find, R.id.bu_notice, R.id.bu_repair, R.id.bu_comment})
+
+    @OnClick({R.id.bu_find, R.id.bu_notice, R.id.bu_repair, R.id.bu_comment,R.id.iv_setting})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bu_find:
@@ -116,6 +137,9 @@ public class AdministratoActivity extends BaseActivity {
             case R.id.bu_repair:
                 break;
             case R.id.bu_comment:
+                break;
+            case R.id.iv_setting:
+                startActivity(new Intent(AdministratoActivity.this,SettingActivity.class));
                 break;
         }
     }

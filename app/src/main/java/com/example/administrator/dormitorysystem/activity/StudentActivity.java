@@ -1,6 +1,7 @@
 package com.example.administrator.dormitorysystem.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -63,6 +64,8 @@ public class StudentActivity extends BaseActivity {
     TextView tvDorDetaliNum;
     @Bind(R.id.drawerLayout)
     DrawerLayout drawerLayout;
+    @Bind(R.id.iv_setting)
+    ImageView ivSetting;
     private Student student;
     private List<Integer> images;
     private List<String> strings;
@@ -138,7 +141,7 @@ public class StudentActivity extends BaseActivity {
         }
     }
 
-    @OnClick({R.id.bu_find, R.id.bu_notice, R.id.bu_repair, R.id.bu_comment})
+    @OnClick({R.id.bu_find, R.id.bu_notice, R.id.bu_repair, R.id.bu_comment,R.id.iv_setting})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bu_find:
@@ -148,6 +151,9 @@ public class StudentActivity extends BaseActivity {
             case R.id.bu_repair:
                 break;
             case R.id.bu_comment:
+                break;
+            case R.id.iv_setting:
+                startActivity(new Intent(StudentActivity.this,SettingActivity.class));
                 break;
         }
     }

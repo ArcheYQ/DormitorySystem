@@ -86,7 +86,7 @@ public class DetailAdministratoActivity extends BaseActivity {
                 if (!etGrade.getText().toString().isEmpty() && !etStudentSex.getText().toString().isEmpty() && !etTelNum.getText().toString().isEmpty() && !etTrueName.getText().toString().isEmpty()
                         ) {
                     Administrato administrato = Administrato.getCurrentUser(Administrato.class);
-                    Administrato administrato1 = new Administrato();
+                    final Administrato administrato1 = new Administrato();
                     administrato1.setName(etTrueName.getText().toString());
                     administrato1.setSex(etStudentSex.getText().toString());
                     administrato1.setMobilePhoneNumber(etTelNum.getText().toString());
@@ -96,6 +96,11 @@ public class DetailAdministratoActivity extends BaseActivity {
                         public void done(BmobException e) {
                             if (e == null) {
                                 Toast.makeText(mActivity, "更新用户信息成功", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(DetailAdministratoActivity.this,AdministratoActivity.class);
+                                Bundle bundle = new Bundle();
+                                bundle.putSerializable("aInfo",administrato1);
+                                intent.putExtras(bundle);
+                                startActivity(intent);
                             }else if (e.getErrorCode() == 301){
                                 Toast.makeText(mActivity, "电话号码填写格式不对", Toast.LENGTH_SHORT).show();
 

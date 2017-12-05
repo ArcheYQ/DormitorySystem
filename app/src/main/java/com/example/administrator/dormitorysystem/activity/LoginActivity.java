@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -154,17 +155,23 @@ public class LoginActivity extends AppCompatActivity {
                 if (e == null){
                     student = BmobUser.getCurrentUser(Student.class);
                     if(student.getPer()==false){
-                        Intent intent = new Intent(LoginActivity.this,StudentActivity.class);
-                        Bundle bundle = new Bundle();
-                        bundle.putSerializable("sInfo",student);
-                        intent.putExtras(bundle);
-                        startActivity(intent);
+                        if (student.getName().isEmpty()){
+                            Toast.makeText(LoginActivity.this, "请完善信息", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(LoginActivity.this,DetailStudentActivity.class));
+                        }else {
+                            Intent intent = new Intent(LoginActivity.this,StudentActivity.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putSerializable("sInfo",student);
+                            intent.putExtras(bundle);
+                            startActivity(intent);
+                        }
                     }else{
                         Toast.makeText(LoginActivity.this, "请选择管理员方式登录", Toast.LENGTH_SHORT).show();
                     }
                 }else if (e.getErrorCode() == 9016){
                     Toast.makeText(LoginActivity.this, "请检查网络连接", Toast.LENGTH_SHORT).show();
                 }else {
+                    Log.i("TAG", "done: "+e.getErrorCode());
                     Toast.makeText(LoginActivity.this, "请检查你的账号密码是否正确", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -180,7 +187,17 @@ public class LoginActivity extends AppCompatActivity {
                 if (e == null){
                     Administrato administrato1 = BmobUser.getCurrentUser(Administrato.class);
                     if(administrato1.getPer()==true){
-                        //tiao
+                        if (administrato1.getName().isEmpty()){
+                            Toast.makeText(LoginActivity.this, "请完善信息", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(LoginActivity.this,DetailAdministratoActivity.class));
+                        }else
+                        {
+                            Intent intent = new Intent(LoginActivity.this,AdministratoActivity.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putSerializable("aInfo",administrato1);
+                            intent.putExtras(bundle);
+                            startActivity(intent);
+                        }
                     }else{
                         Toast.makeText(LoginActivity.this, "请选择学生方式登录", Toast.LENGTH_SHORT).show();
                     }
