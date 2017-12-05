@@ -149,6 +149,7 @@ public class StudentActivity extends BaseActivity {
             case R.id.bu_notice:
                 break;
             case R.id.bu_repair:
+                startActivity(new Intent(StudentActivity.this,RepairActivity.class));
                 break;
             case R.id.bu_comment:
                 break;

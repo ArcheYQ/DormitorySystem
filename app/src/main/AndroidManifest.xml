@@ -38,7 +38,9 @@
         <activity android:name=".activity.DetailAdministratoActivity" />
         <activity android:name=".activity.StudentActivity" />
         <activity android:name=".activity.AdministratoActivity" />
-        <activity android:name=".activity.SettingActivity"></activity>
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.RepairActivity" />
+        <activity android:name=".activity.PublishRepairActivity"></activity>
     </application>
 
 </manifest>
