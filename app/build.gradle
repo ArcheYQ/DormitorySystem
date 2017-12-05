@@ -25,6 +25,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile 'com.github.niorgai:StatusBarCompat:2.1.1'
     compile 'com.zxy.android:tiny:0.0.6'
     compile 'com.youth.banner:banner:1.4.10'
     compile 'com.github.bumptech.glide:glide:3.7.0'

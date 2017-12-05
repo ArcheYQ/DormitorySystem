@@ -34,7 +34,8 @@
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.DetailStudentActivity" />
         <activity android:name=".activity.DetailAdministratoActivity" />
-        <activity android:name=".activity.StudentActivity"></activity>
+        <activity android:name=".activity.StudentActivity" />
+        <activity android:name=".activity.AdministratoActivity"></activity>
     </application>
 
 </manifest>

@@ -152,8 +152,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void done(Student student, BmobException e) {
                 if (e == null){
-                    Student student1 = BmobUser.getCurrentUser(Student.class);
-                    if(student1.getPer()==false){
+                    student = BmobUser.getCurrentUser(Student.class);
+                    if(student.getPer()==false){
                         Intent intent = new Intent(LoginActivity.this,StudentActivity.class);
                         Bundle bundle = new Bundle();
                         bundle.putSerializable("sInfo",student);

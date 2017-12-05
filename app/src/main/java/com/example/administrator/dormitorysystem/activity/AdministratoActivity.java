@@ -12,12 +12,11 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.dormitorysystem.R;
-import com.example.administrator.dormitorysystem.bean.Student;
+import com.example.administrator.dormitorysystem.bean.Administrato;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.loader.ImageLoader;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -26,13 +25,12 @@ import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 import qiu.niorgai.StatusBarCompat;
 
+public class AdministratoActivity extends BaseActivity {
 
-public class StudentActivity extends BaseActivity {
-
-    @Bind(R.id.tb_stduent)
-    Toolbar tbStduent;
     @Bind(R.id.banner)
     Banner banner;
+    @Bind(R.id.tb_administrato)
+    Toolbar tbAdministrato;
     @Bind(R.id.bu_find)
     Button buFind;
     @Bind(R.id.bu_notice)
@@ -51,31 +49,22 @@ public class StudentActivity extends BaseActivity {
     TextView tvTel;
     @Bind(R.id.tv_sex)
     TextView tvSex;
-    @Bind(R.id.tv_garde)
-    TextView tvGarde;
-    @Bind(R.id.tv_collega)
-    TextView tvCollega;
-    @Bind(R.id.tv_class)
-    TextView tvClass;
-    @Bind(R.id.tv_dorNum)
-    TextView tvDorNum;
-    @Bind(R.id.tv_dorDetaliNum)
-    TextView tvDorDetaliNum;
+    @Bind(R.id.tv_mainRage)
+    TextView tvMainRage;
     @Bind(R.id.drawerLayout)
     DrawerLayout drawerLayout;
-    private Student student;
     private List<Integer> images;
     private List<String> strings;
-
+    private Administrato administrato;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         StatusBarCompat.translucentStatusBar(this);
-        setContentView(R.layout.activity_student);
+        setContentView(R.layout.activity_administrato);
         ButterKnife.bind(this);
-        student = (Student) getIntent().getSerializableExtra("sInfo");
+
         initData();
-        initDrawer(tbStduent);
+        initDrawer(tbAdministrato);
         banner.setImageLoader(new GlideImagerLoader());
         banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE);
         banner.setImages(images);
@@ -83,9 +72,7 @@ public class StudentActivity extends BaseActivity {
         banner.isAutoPlay(true);
         banner.setDelayTime(2000);
         banner.start();
-
     }
-
     public void initDrawer(Toolbar toolbar) {
         if (toolbar != null) {
             ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.refresh, R.string.refresh) {
@@ -105,31 +92,6 @@ public class StudentActivity extends BaseActivity {
         }
     }
 
-    private void initData() {
-        tvTrueName.setText(student.getName().toString());
-        tvId.setText(student.getUsername().toString());
-        tvTel.setText(student.getMobilePhoneNumber().toString());
-        tvSex.setText(student.getSex().toString());
-        tvGarde.setText(student.getGrade().toString());
-        tvCollega.setText(student.getCollega().toString());
-        tvClass.setText(student.getClassName().toString());
-        tvDorNum.setText(student.getDorNum().toString());
-        tvDorDetaliNum.setText(student.getDorDetaliNum().toString());
-        if (student.getNickUrl().isEmpty()) {
-            Glide.with(this).load("http://bmob-cdn-13164.b0.upaiyun.com/2017/09/04/b1b8899cc0934c899bc86f88bafdf302.jpg").into(cmPerson);
-        } else {
-            Glide.with(this).load(student.getNickUrl().toString()).into(cmPerson);
-        }
-        images = new ArrayList<>();
-        strings = new ArrayList<>();
-        images.add(R.drawable.one);
-        images.add(R.drawable.two);
-        images.add(R.drawable.three);
-        strings.add("湖南工业大学欢迎你");
-        strings.add("学校夜景");
-        strings.add("厚德博学 和而不同");
-    }
-
     public class GlideImagerLoader extends ImageLoader {
 
         @Override
@@ -137,7 +99,13 @@ public class StudentActivity extends BaseActivity {
             Glide.with(context).load(o).into(imageView);
         }
     }
-
+    private void initData() {
+        tvTrueName.setText(administrato.getName().toString());
+        tvId.setText(administrato.getUsername().toString());
+        tvSex.setText(administrato.getSex().toString());
+        tvTel.setText(administrato.get().toString());
+        tvMainRage.setText(administrato.getSex().toString());
+    }
     @OnClick({R.id.bu_find, R.id.bu_notice, R.id.bu_repair, R.id.bu_comment})
     public void onViewClicked(View view) {
         switch (view.getId()) {

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
-    tools:context="com.example.administrator.dormitorysystem.activity.StudentActivity">
+    tools:context="com.example.administrator.dormitorysystem.activity.AdministratoActivity">
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
                 android:layout_height="230dp" />
             <android.support.v7.widget.Toolbar
                 android:layout_marginTop="20dp"
-                android:id="@+id/tb_stduent"
+                android:id="@+id/tb_administrato"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 app:layout_collapseMode="pin"
@@ -51,7 +51,7 @@
             android:background="@drawable/check_border_all"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:text="浏览通知公告"
+            android:text="公告管理"
             android:layout_width="160dp"
             android:layout_height="40dp" />
         <Button
@@ -60,7 +60,7 @@
             android:background="@drawable/check_border_all"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:text="报修登记"
+            android:text="报修情况"
             android:layout_width="160dp"
             android:layout_height="40dp" />
 
@@ -74,5 +74,5 @@
             android:text="留言板"
             android:textColor="#6a7e80" />
     </LinearLayout>
-    <include layout="@layout/include_stdent_info" />
+    <include layout="@layout/include_administrato_info" />
 </android.support.v4.widget.DrawerLayout>
