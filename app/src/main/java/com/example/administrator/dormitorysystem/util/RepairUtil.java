@@ -27,7 +27,7 @@ public class RepairUtil  {
         query.setLimit(10);//每次查询十个数据
         query.setSkip(10*page);//跳过前面多少数据
         query.order("-createdAt");//排序，按时间降序
-        query.addWhereEqualTo("student", BmobUser.getCurrentUser(Student.class));
+        query.addWhereEqualTo("student", BmobUser.getCurrentUser(Student.class).getObjectId());
         query.findObjects(new FindListener<RepairInfo>() {
             @Override
             public void done(List<RepairInfo> data, BmobException e) {

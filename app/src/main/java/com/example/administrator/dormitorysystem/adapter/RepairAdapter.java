@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import com.example.administrator.dormitorysystem.R;
 import com.example.administrator.dormitorysystem.bean.RepairInfo;
+import com.example.administrator.dormitorysystem.bean.Student;
+import com.example.administrator.dormitorysystem.util.UserUtil;
 
 import java.util.List;
 
@@ -62,9 +64,20 @@ public class RepairAdapter extends RecyclerView.Adapter<RepairAdapter.RepairView
         public void load(RepairInfo repairInfo){
             tvContent.setText(repairInfo.getContent().toString());
             tvTitle.setText(repairInfo.getTitle().toString());
-            tvDorNum.setText("宿舍号："+repairInfo.getStudent().getDorDetaliNum());
-            tvTel.setText("电话号码："+repairInfo.getStudent().getMobilePhoneNumber());
-            tvName.setText("保修人姓名："+repairInfo.getStudent().getName());
+            UserUtil.findUser(repairInfo.getStudent().toString(), new UserUtil.UserListener() {
+                @Override
+                public void complete(List<Student> students) {
+                    tvDorNum.setText("宿舍号："+ students.get(0).getDorDetaliNum().toString());
+                    tvTel.setText("电话号码："+students.get(0).getMobilePhoneNumber().toString());
+                    tvName.setText("保修人姓名："+students.get(0).getName().toString());
+                }
+                @Override
+                public void fail(String error) {
+                    tvDorNum.setText("宿舍号："+"null");
+                    tvTel.setText("电话号码："+"null");
+                    tvName.setText("保修人姓名："+"null");
+                }
+            });
             tvTime.setText(repairInfo.getTime().toString());
         }
     }

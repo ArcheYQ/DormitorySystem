@@ -8,10 +8,18 @@ import cn.bmob.v3.BmobObject;
 
 public class RepairInfo extends BmobObject{
 
+    public String getStudent() {
+        return student;
+    }
+
+    public void setStudent(String student) {
+        this.student = student;
+    }
+
     /**
      * 报修人员
      */
-    private Student student;
+    private String student;
     /**
      * 标题
      */
@@ -24,13 +32,7 @@ public class RepairInfo extends BmobObject{
      * 时间
      */
     private String time;
-    public Student getStudent() {
-        return student;
-    }
 
-    public void setStudent(Student student) {
-        this.student = student;
-    }
 
     public String getTitle() {
         return title;

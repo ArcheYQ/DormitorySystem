@@ -58,6 +58,7 @@ public class RepairActivity extends BaseActivity {
 
             @Override
             public void fail(String error) {
+                Log.i("test","111111111111"+error);
                 Toast.makeText(RepairActivity.this, error, Toast.LENGTH_SHORT).show();
             }
         });

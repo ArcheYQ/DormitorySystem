@@ -52,7 +52,7 @@ public class PublishRepairActivity extends BaseActivity {
             RepairInfo repairInfo = new RepairInfo();
             repairInfo.setContent(etAddRepairContent.getText().toString());
             repairInfo.setTitle(etAddRepairTitle.getText().toString());
-            repairInfo.setStudent(BmobUser.getCurrentUser(Student.class));
+            repairInfo.setStudent(BmobUser.getCurrentUser(Student.class).getObjectId());
             repairInfo.setTime(format.format(new Date(Long.parseLong(String.valueOf(System.currentTimeMillis())))));
             repairInfo.save(new SaveListener<String>() {
                 @Override
