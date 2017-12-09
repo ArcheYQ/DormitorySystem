@@ -5,4 +5,5 @@
     <color name="colorPrimary">#8dc3e6</color>
     <color name="colorPrimaryDark">#8dc3e6</color>
     <color name="colorAccent">#8dc3e6</color>
+    <color name="share_text">#ff000000</color>
 </resources>

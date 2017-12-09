@@ -112,7 +112,7 @@ public class AdministratoActivity extends BaseActivity {
         tvSex.setText(administrato.getSex().toString());
         tvTel.setText(administrato.getMobilePhoneNumber().toString());
         tvMainRage.setText(administrato.getMainRage().toString());
-        if (administrato.getNickUrl().isEmpty()) {
+        if (administrato.getNickUrl()==null|| administrato.getNickUrl().isEmpty()) {
             Glide.with(this).load("http://bmob-cdn-13164.b0.upaiyun.com/2017/09/04/b1b8899cc0934c899bc86f88bafdf302.jpg").into(cmPerson);
         } else {
             Glide.with(this).load(administrato.getNickUrl().toString()).into(cmPerson);
@@ -133,6 +133,7 @@ public class AdministratoActivity extends BaseActivity {
             case R.id.bu_find:
                 break;
             case R.id.bu_notice:
+                startActivity(new Intent(AdministratoActivity.this,NoticeActivity.class));
                 break;
             case R.id.bu_repair:
                 break;

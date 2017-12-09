@@ -77,7 +77,18 @@ public class StudentActivity extends BaseActivity {
         setContentView(R.layout.activity_student);
         ButterKnife.bind(this);
         student = (Student) getIntent().getSerializableExtra("sInfo");
-        initData();
+        if (student == null || student.getGrade()==null){
+            startActivity(new Intent(StudentActivity.this,LoginActivity.class));
+            finish();
+        }
+
+        try {
+            initData();
+        } catch (Exception e) {
+            startActivity(new Intent(StudentActivity.this,LoginActivity.class));
+            finish();
+            e.printStackTrace();
+        }
         initDrawer(tbStduent);
         banner.setImageLoader(new GlideImagerLoader());
         banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE);
@@ -113,7 +124,7 @@ public class StudentActivity extends BaseActivity {
         tvId.setText(student.getUsername().toString());
         tvTel.setText(student.getMobilePhoneNumber().toString());
         tvSex.setText(student.getSex().toString());
-        tvGarde.setText(student.getGrade().toString());
+         tvGarde.setText(student.getGrade().toString());
         tvCollega.setText(student.getCollega().toString());
         tvClass.setText(student.getClassName().toString());
         tvDorNum.setText(student.getDorNum().toString());
@@ -147,8 +158,10 @@ public class StudentActivity extends BaseActivity {
             case R.id.bu_find:
                 break;
             case R.id.bu_notice:
+                startActivity(new Intent(StudentActivity.this,NoticeActivity.class));
                 break;
             case R.id.bu_repair:
+                startActivity(new Intent(StudentActivity.this,PublishNoticActivity.class));
                 break;
             case R.id.bu_comment:
                 break;

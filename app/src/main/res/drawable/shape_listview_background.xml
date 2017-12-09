@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!--background color
+      | use this for transparent -->
+    <solid android:color="#00000000" />
+
+    <!-- border style -->
+    <!--
+     | add border to listview item :
+     |   android:color="#ccc"
+     -->
+    <stroke
+        android:width="1px"
+        android:color="#00000000" />
+
+    <corners
+        android:bottomLeftRadius="2dp"
+        android:bottomRightRadius="2dp"
+        android:topLeftRadius="2dp"
+        android:topRightRadius="2dp" />
+</shape>

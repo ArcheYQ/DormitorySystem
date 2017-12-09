@@ -213,9 +213,9 @@ public class LoginActivity extends AppCompatActivity {
         Administrato ad = new Administrato();
         ad.setUsername(etLoginAccount.getText().toString());
         ad.setPassword(etLoginPassword.getText().toString());
-        ad.signUp(new SaveListener<Student>() {
+        ad.signUp(new SaveListener<Administrato>() {
             @Override
-            public void done(Student student, BmobException e) {
+            public void done(Administrato student, BmobException e) {
                 if (e==null){
                     Toast.makeText(LoginActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(LoginActivity.this,DetailAdministratoActivity.class));
