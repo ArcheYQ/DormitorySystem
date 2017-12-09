@@ -26,7 +26,6 @@
                 android:id="@+id/tv_repair_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="报修人姓名：黄雅倩"
                 android:textSize="14sp"
                 android:maxLines="1"
                 android:textColor="@color/black"
@@ -37,7 +36,6 @@
                 android:layout_marginRight="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12-27"
                 android:textSize="14sp"
                 android:maxLines="1"
                 android:textColor="@color/black"
@@ -49,7 +47,6 @@
             android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="宿舍号：12-621"
             android:textSize="14sp"
             android:maxLines="1"
             android:textColor="@color/black"
@@ -59,7 +56,6 @@
             android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="电话号码：15886306202"
             android:textSize="14sp"
             android:maxLines="1"
             android:textColor="@color/black"
@@ -70,7 +66,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:text="宿舍热水器坏了"
             android:textSize="17sp"
             android:maxLines="1"
             />
@@ -80,7 +75,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:text="大冬天没有热水真的很痛苦啊啊啊啊啊啊啊啊大冬天没有热水真的很痛苦啊啊啊啊啊啊啊啊大冬天没有热水真的很痛苦啊啊啊啊啊啊啊啊大冬天没有热水真的很痛苦啊啊啊啊啊啊啊啊大冬天没有热水真的很痛苦啊啊啊啊啊啊啊啊大冬天没有热水真的很痛苦啊啊啊啊啊啊啊啊"
             android:layout_marginBottom="8dp"
             android:maxLines="3"/>
     </LinearLayout>

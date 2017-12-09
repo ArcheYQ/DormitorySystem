@@ -117,6 +117,9 @@ public class DetailStudentActivity extends BaseActivity {
                             } else if (e.getErrorCode() == 301){
                                  Toast.makeText(mActivity, "电话号码填写格式不对", Toast.LENGTH_SHORT).show();
 
+                            } else if (e.getErrorCode() == 209){
+                                Toast.makeText(mActivity, "电话号码已经存在", Toast.LENGTH_SHORT).show();
+
                             }else if (e.getErrorCode() == 9016){
                                 Toast.makeText(mActivity, "网络无连接( ▼-▼ )", Toast.LENGTH_SHORT).show();
                             }else {

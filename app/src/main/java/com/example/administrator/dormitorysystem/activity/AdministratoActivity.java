@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +28,7 @@ import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 import qiu.niorgai.StatusBarCompat;
 
-public class AdministratoActivity extends BaseActivity {
+public class AdministratoActivity extends AppCompatActivity {
 
     @Bind(R.id.banner)
     Banner banner;
@@ -136,8 +137,10 @@ public class AdministratoActivity extends BaseActivity {
                 startActivity(new Intent(AdministratoActivity.this,NoticeActivity.class));
                 break;
             case R.id.bu_repair:
+                startActivity(new Intent(AdministratoActivity.this,AllRepairActivity.class));
                 break;
             case R.id.bu_comment:
+                startActivity(new Intent(AdministratoActivity.this,MessageActivity.class));
                 break;
             case R.id.iv_setting:
                 startActivity(new Intent(AdministratoActivity.this,SettingActivity.class));

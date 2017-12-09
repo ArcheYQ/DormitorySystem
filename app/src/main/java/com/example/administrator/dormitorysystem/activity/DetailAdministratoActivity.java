@@ -85,20 +85,19 @@ public class DetailAdministratoActivity extends BaseActivity {
             case R.id.btn_student_ensure:
                 if (!etGrade.getText().toString().isEmpty() && !etStudentSex.getText().toString().isEmpty() && !etTelNum.getText().toString().isEmpty() && !etTrueName.getText().toString().isEmpty()
                         ) {
-                    Administrato administrato = Administrato.getCurrentUser(Administrato.class);
-                    final Administrato administrato1 = new Administrato();
-                    administrato1.setName(etTrueName.getText().toString());
-                    administrato1.setSex(etStudentSex.getText().toString());
-                    administrato1.setMobilePhoneNumber(etTelNum.getText().toString());
-                    administrato1.setMainRage(etGrade.getText().toString());
-                    administrato1.update(administrato.getObjectId(), new UpdateListener() {
+                    final Administrato administrato = Administrato.getCurrentUser(Administrato.class);
+                    administrato.setName(etTrueName.getText().toString());
+                    administrato.setSex(etStudentSex.getText().toString());
+                    administrato.setMobilePhoneNumber(etTelNum.getText().toString());
+                    administrato.setMainRage(etGrade.getText().toString());
+                    administrato.update(administrato.getObjectId(), new UpdateListener() {
                         @Override
                         public void done(BmobException e) {
                             if (e == null) {
                                 Toast.makeText(mActivity, "更新用户信息成功", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(DetailAdministratoActivity.this,AdministratoActivity.class);
                                 Bundle bundle = new Bundle();
-                                bundle.putSerializable("aInfo",administrato1);
+                                bundle.putSerializable("aInfo",administrato);
                                 intent.putExtras(bundle);
                                 startActivity(intent);
                             }else if (e.getErrorCode() == 301){
@@ -106,7 +105,10 @@ public class DetailAdministratoActivity extends BaseActivity {
 
                             }else if (e.getErrorCode() == 9016){
                                 Toast.makeText(mActivity, "网络无连接( ▼-▼ )", Toast.LENGTH_SHORT).show();
-                            }else {
+                            }else if (e.getErrorCode() == 209){
+                                Toast.makeText(mActivity, "电话号码已经存在", Toast.LENGTH_SHORT).show();
+
+                            } else{
                                 Toast.makeText(mActivity, "更新用户信息失败", Toast.LENGTH_SHORT).show();
                             }
                         }

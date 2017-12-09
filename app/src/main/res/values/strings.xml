@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DormitorySystem</string>
+    <string name="app_name">宿舍管理系统</string>
     <string name="refresh"></string>
     <string name="title">this is a title</string>
     <string name="err_no_net">err_no_net</string>

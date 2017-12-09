@@ -50,7 +50,7 @@ public class SettingActivity extends BaseActivity implements OnItemClickListener
         ButterKnife.bind(this);
         setToolBar(R.id.tb_personal);
         initHome();
-        mAlertView = new AlertView("提示", "是否推出登录", "取消", new String[]{"确定"}, null, this, AlertView.Style.Alert, this).
+        mAlertView = new AlertView("提示", "是否退出登录", "取消", new String[]{"确定"}, null, this, AlertView.Style.Alert, this).
                 setCancelable(true).setOnDismissListener(new OnDismissListener() {
             @Override
             public void onDismiss(Object o) {

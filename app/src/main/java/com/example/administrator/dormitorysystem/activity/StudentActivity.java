@@ -5,12 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bigkoo.alertview.AlertView;
+import com.bigkoo.alertview.OnItemClickListener;
 import com.bumptech.glide.Glide;
 import com.example.administrator.dormitorysystem.R;
 import com.example.administrator.dormitorysystem.bean.Student;
@@ -28,7 +31,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import qiu.niorgai.StatusBarCompat;
 
 
-public class StudentActivity extends BaseActivity {
+public class StudentActivity extends AppCompatActivity implements OnItemClickListener {
 
     @Bind(R.id.tb_stduent)
     Toolbar tbStduent;
@@ -81,7 +84,6 @@ public class StudentActivity extends BaseActivity {
             startActivity(new Intent(StudentActivity.this,LoginActivity.class));
             finish();
         }
-
         try {
             initData();
         } catch (Exception e) {
@@ -89,6 +91,14 @@ public class StudentActivity extends BaseActivity {
             finish();
             e.printStackTrace();
         }
+        images = new ArrayList<>();
+        strings = new ArrayList<>();
+        images.add(R.drawable.one);
+        images.add(R.drawable.two);
+        images.add(R.drawable.three);
+        strings.add("湖南工业大学欢迎你");
+        strings.add("学校夜景");
+        strings.add("厚德博学 和而不同");
         initDrawer(tbStduent);
         banner.setImageLoader(new GlideImagerLoader());
         banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE);
@@ -97,7 +107,6 @@ public class StudentActivity extends BaseActivity {
         banner.isAutoPlay(true);
         banner.setDelayTime(2000);
         banner.start();
-
     }
 
     public void initDrawer(Toolbar toolbar) {
@@ -134,15 +143,14 @@ public class StudentActivity extends BaseActivity {
         } else {
             Glide.with(this).load(student.getNickUrl().toString()).into(cmPerson);
         }
-        images = new ArrayList<>();
-        strings = new ArrayList<>();
-        images.add(R.drawable.one);
-        images.add(R.drawable.two);
-        images.add(R.drawable.three);
-        strings.add("湖南工业大学欢迎你");
-        strings.add("学校夜景");
-        strings.add("厚德博学 和而不同");
+
     }
+
+    @Override
+    public void onItemClick(Object o, int position) {
+
+    }
+
 
     public class GlideImagerLoader extends ImageLoader {
 
@@ -156,14 +164,16 @@ public class StudentActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bu_find:
+                new AlertView("信息查询", "当前剩余电费：42.5度\n宿舍管理员电话：13272129096", null, new String[]{"确定"}, null, this, AlertView.Style.Alert, this).show();
                 break;
             case R.id.bu_notice:
                 startActivity(new Intent(StudentActivity.this,NoticeActivity.class));
                 break;
             case R.id.bu_repair:
-                startActivity(new Intent(StudentActivity.this,PublishNoticActivity.class));
+                startActivity(new Intent(StudentActivity.this,RepairActivity.class));
                 break;
             case R.id.bu_comment:
+                startActivity(new Intent(StudentActivity.this,MessageActivity.class));
                 break;
             case R.id.iv_setting:
                 startActivity(new Intent(StudentActivity.this,SettingActivity.class));

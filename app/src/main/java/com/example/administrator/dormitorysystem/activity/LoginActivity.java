@@ -29,7 +29,7 @@ import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 
-public class LoginActivity extends AppCompatActivity {
+    public class LoginActivity extends BaseActivity {
 
     @Bind(R.id.iv_login_background)
     ImageView ivLoginBackground;
@@ -164,7 +164,9 @@ public class LoginActivity extends AppCompatActivity {
                             bundle.putSerializable("sInfo",student);
                             intent.putExtras(bundle);
                             startActivity(intent);
+                            finish();
                         }
+
                     }else{
                         Toast.makeText(LoginActivity.this, "请选择管理员方式登录", Toast.LENGTH_SHORT).show();
                     }
@@ -197,7 +199,9 @@ public class LoginActivity extends AppCompatActivity {
                             bundle.putSerializable("aInfo",administrato1);
                             intent.putExtras(bundle);
                             startActivity(intent);
+                            finish();
                         }
+
                     }else{
                         Toast.makeText(LoginActivity.this, "请选择学生方式登录", Toast.LENGTH_SHORT).show();
                     }

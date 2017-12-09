@@ -16,37 +16,40 @@ public class Student extends BmobUser{
         isPer = per;
     }
 
+    /**
+     * 权限控制嘛
+     */
     private Boolean isPer;
     /**
-     * 真实姓名
+     * 真实姓名嘛
      */
     private String name;
     /**
-     * 性别
+     * 性别嘛
      */
     private String sex;
     /**
-     * 年级
+     * 年级嘛
      */
     private String grade;
     /**
-     * 班级
+     * 班级嘛
      */
     private String className;
     /**
-     * 学院
+     * 学院嘛
      */
     private String collega;
     /**
-     * 头像地址
+     * 头像地址嘛
      */
     private String nickUrl;
     /**
-     * 宿舍栋数
+     * 宿舍栋数嘛
      */
     private String dorNum;
     /**
-     * 宿舍门牌号
+     * 宿舍门牌号嘛
      */
     private String dorDetaliNum;
 

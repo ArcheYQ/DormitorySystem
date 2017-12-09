@@ -45,5 +45,26 @@ public class RepairUtil  {
             }
         });
     }
-
+    public static void findAllRepair(int page , final QueryListener listener){
+        BmobQuery<RepairInfo> query = new BmobQuery<>();
+        query.setLimit(10);//每次查询十个数据
+        query.setSkip(10*page);//跳过前面多少数据
+        query.order("-createdAt");//排序，按时间降序
+        query.findObjects(new FindListener<RepairInfo>() {
+            @Override
+            public void done(List<RepairInfo> data, BmobException e) {
+                if (e == null){
+                    listener.complete(data);
+                }else {
+                    if (e.getErrorCode() == 9016){
+                        listener.fail(MyApplication
+                                .getContext()
+                                .getString(R.string.err_no_net));
+                    }else {
+                        listener.fail(e.getMessage());
+                    }
+                }
+            }
+        });
+    }
 }
