@@ -132,6 +132,7 @@ public class AdministratoActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bu_find:
+                startActivity(new Intent(AdministratoActivity.this,InfoStudentsActivity.class));
                 break;
             case R.id.bu_notice:
                 startActivity(new Intent(AdministratoActivity.this,NoticeActivity.class));

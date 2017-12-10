@@ -35,6 +35,7 @@ import rx.Subscription;
 
 /**
  * Created by reoger on 2017/12/5.
+ *
  */
 
 
@@ -109,7 +110,7 @@ public class NoticeActivity extends BaseActivity {
 //                            }
 //                        });
                 CurrenIndex = i;
-                Log.d(TAG, "onItemLongClick: 进入了此方法");
+
                 return false;
             }
         });

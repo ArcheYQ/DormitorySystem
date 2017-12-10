@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#66ff6600"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="查询学生信息"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/ed_username"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:hint="请输入用户名，如6"
+            android:inputType="text"
+            android:padding="5dp"></EditText>
+
+        <Button
+            android:id="@+id/bu_search_username"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/check_border_all"
+            android:text="按用户名查询" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@drawable/shape_listview_background"
+        android:layout_height="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/ed_dorDetaliNum"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:hint="请输入门牌号，如621"
+            android:inputType="text"
+            android:padding="5dp"></EditText>
+
+        <Button
+            android:id="@+id/bu_dorDetaliNum"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/check_border_all"
+            android:text="按宿舍门牌号查询" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

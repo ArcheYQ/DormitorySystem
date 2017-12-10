@@ -62,7 +62,6 @@ public class NoticeListAdapter extends BaseAdapter{
         if(convertView  == null){
             viewHolder = new ViewHolder();
             if(mInflater==null){
-                Log.d("TTTT", "getView: miis nulll");
                 mInflater = LayoutInflater.from(mContext);
             }
             noticeView = mInflater.inflate(R.layout.item_notice,null);

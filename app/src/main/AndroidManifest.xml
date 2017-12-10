@@ -38,16 +38,18 @@
         <activity android:name=".activity.DetailAdministratoActivity" />
         <activity android:name=".activity.StudentActivity" />
         <activity android:name=".activity.AdministratoActivity" />
-        <activity android:name=".activity.SettingActivity" />
-        <activity android:name=".activity.NoticeActivity" />
-        <activity android:name=".activity.NoticeDetailActivity" />
-        <activity android:name=".activity.PublishNoticActivity" />
+        <activity android:name=".activity.SettingActivity"/>
+        <activity android:name=".activity.NoticeActivity"/>
+        <activity android:name=".activity.NoticeDetailActivity"/>
+        <activity android:name=".activity.PublishNoticActivity"/>
+        <activity android:name=".activity.InfoStudentsActivity"/>
         <activity android:name=".activity.RepairActivity" />
         <activity android:name=".activity.PublishRepairActivity" />
         <activity android:name=".activity.MessageActivity" />
         <activity android:name=".activity.PublicMessageActivity" />
         <activity android:name=".activity.CommentActivity" />
-        <activity android:name=".activity.AllRepairActivity"></activity>
+        <activity android:name=".activity.AllRepairActivity"/>
+        <activity android:name=".activity.StudentDetailInfoActivity"/>
     </application>
 
 </manifest>
