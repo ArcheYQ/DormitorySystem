@@ -34,7 +34,7 @@ public class RepairActivity extends BaseActivity {
     private RepairAdapter repairAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {//
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_repair);
         ButterKnife.bind(this);

@@ -15,6 +15,9 @@ public class Administrato extends BmobUser {
         isPer = per;
     }
 
+    /**
+     * quanxian
+     */
     private Boolean isPer;
     /**
      * 工号
