@@ -18,7 +18,7 @@ import cn.bmob.v3.listener.FindListener;
 
 public class CommentUtil {
 
-
+//
     public interface QueryListener{
         void complete(List<Comment> commentList);
         void fail(String error);
