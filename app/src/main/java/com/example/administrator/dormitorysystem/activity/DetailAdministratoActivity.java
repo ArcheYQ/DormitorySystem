@@ -60,7 +60,7 @@ public class DetailAdministratoActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_administrato);
-        ButterKnife.bind(this);//
+        ButterKnife.bind(this);////
         setToolBar(R.id.tb_personal);
         Glide.with(this).load("http://bmob-cdn-13164.b0.upaiyun.com/2017/09/04/b1b8899cc0934c899bc86f88bafdf302.jpg").into(cmPerson);
     }
